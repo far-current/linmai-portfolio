@@ -2,6 +2,38 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 import { PenTool, FileText, BarChart3, Users, Bot, Database } from "lucide-react";
 
+import { ReactNode } from "react";
+
+type Education = {
+  school: string;
+  href: string;
+  degree: string;
+  logoUrl?: string;
+  start: string;
+  end: string;
+};
+
+type Hackathon = {
+  title: string;
+  dates: string;
+  location: string;
+  description: string;
+  image?: string;
+  links?: { title: string; href: string; icon: ReactNode }[];
+};
+
+type Work = {
+  company: string;
+  href: string;
+  badges: string[];
+  location: string;
+  title: string;
+  logoUrl: string;
+  start: string;
+  end: string | null;
+  description: string;
+};
+
 export const DATA = {
   name: "林迈",
   initials: "LM",
@@ -50,8 +82,8 @@ export const DATA = {
     },
   },
 
-  work: [],
-  education: [],
+  work: [] as Work[],
+  education: [] as Education[],
   projects: [
     {
       title: "AI 简历功能优化 PRD",
@@ -160,5 +192,5 @@ export const DATA = {
       video: "",
     },
   ],
-  hackathons: [],
-} as const;
+  hackathons: [] as Hackathon[],
+};
