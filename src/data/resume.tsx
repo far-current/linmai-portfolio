@@ -31,7 +31,7 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/linmai",
+        url: "https://github.com/far-current",
         icon: Icons.github,
         navbar: true,
       },
