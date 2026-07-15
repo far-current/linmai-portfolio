@@ -46,6 +46,7 @@ type Project = {
   dates: string;
   active: boolean;
   description: string;
+  technologies: string[];
   links: ProjectLink[];
   image: string;
   video: string;
