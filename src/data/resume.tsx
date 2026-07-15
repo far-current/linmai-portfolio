@@ -61,6 +61,14 @@ type Project = {
   note?: string;
 };
 
+type PortfolioMaterial = {
+  icon: string;
+  label: string;
+  href?: string;
+  images?: string[];
+  pdfs?: string[];
+};
+
 export const DATA = {
   name: "林迈",
   initials: "LM",
@@ -256,7 +264,15 @@ export const DATA = {
   ] as Project[],
   hackathons: [] as Hackathon[],
   portfolioMaterials: [
-    "📁 数据处理案例（千条记录 Excel、70 种常见问题）",
-    "📁 个人知识库 / 笔记",
-  ],
+    {
+      icon: "📁",
+      label: "数据处理案例（千条记录 Excel、70 种常见问题）",
+    },
+    {
+      icon: "📁",
+      label: "个人知识库 / 笔记",
+      images: ["/knowledge-note.jpg"],
+      pdfs: ["/no-ai-taste.pdf"],
+    },
+  ] as PortfolioMaterial[],
 };

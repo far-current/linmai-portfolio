@@ -7,6 +7,7 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import ContactSection from "@/components/section/contact-section";
 import HackathonsSection from "@/components/section/hackathons-section";
+import { PortfolioMaterialsSection } from "@/components/section/portfolio-materials-section";
 import ProjectsSection from "@/components/section/projects-section";
 import WorkSection from "@/components/section/work-section";
 import { ArrowUpRight } from "lucide-react";
@@ -155,19 +156,7 @@ export default function Page() {
               <h2 className="text-xl font-bold">通用素材</h2>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 15}>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {DATA.portfolioMaterials.map((material) => (
-                  <div
-                    key={material}
-                    className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
-                  >
-                    <span className="text-2xl shrink-0">{material.split(" ")[0]}</span>
-                    <span className="text-sm font-semibold text-foreground leading-snug">
-                      {material.slice(material.indexOf(" ") + 1)}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <PortfolioMaterialsSection materials={DATA.portfolioMaterials} />
             </BlurFade>
           </div>
         </section>
