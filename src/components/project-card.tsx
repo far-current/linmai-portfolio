@@ -40,6 +40,7 @@ interface Props {
     href: string;
   }[];
   materials?: readonly string[];
+  note?: string;
   className?: string;
 }
 
@@ -54,6 +55,7 @@ export function ProjectCard({
   video,
   links,
   materials,
+  note,
   className,
 }: Props) {
   return (
@@ -107,11 +109,11 @@ export function ProjectCard({
           </div>
         )}
       </div>
-      <div className="p-6 flex flex-col gap-3 flex-1">
+      <div className="p-4 flex flex-col gap-2.5 flex-1">
         <div className="flex items-start justify-between gap-2">
-          <div className="flex flex-col gap-1">
-            <h3 className="font-semibold">{title}</h3>
-            <time className="text-xs text-muted-foreground">{dates}</time>
+          <div className="flex flex-col gap-0.5">
+            <h3 className="font-semibold text-sm">{title}</h3>
+            <time className="text-[11px] text-muted-foreground">{dates}</time>
           </div>
           <Link
             href={href || "#"}
@@ -127,22 +129,27 @@ export function ProjectCard({
           <Markdown>{description}</Markdown>
         </div>
         {materials && materials.length > 0 && (
-          <div className="mt-auto pt-4 border-t border-border">
-            <p className="text-xs font-bold text-foreground mb-2.5 flex items-center gap-1.5">
+          <div className="mt-auto pt-3 border-t border-border">
+            <p className="text-[11px] font-bold text-foreground mb-2 flex items-center gap-1.5">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary" />
               项目素材
             </p>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
               {materials.map((material) => (
                 <li
                   key={material}
-                  className="flex items-start gap-2.5 text-xs text-foreground leading-relaxed bg-muted/50 rounded-lg px-2.5 py-1.5"
+                  className="flex items-start gap-2 text-[11px] text-foreground leading-relaxed bg-muted/50 rounded-md px-2 py-1.5"
                 >
-                  <span className="shrink-0 text-sm leading-none mt-0.5">{material.split(" ")[0]}</span>
+                  <span className="shrink-0 text-xs leading-none mt-0.5">{material.split(" ")[0]}</span>
                   <span className="font-medium">{material.slice(material.indexOf(" ") + 1)}</span>
                 </li>
               ))}
             </ul>
+            {note && (
+              <p className="mt-2 text-[10px] text-muted-foreground leading-relaxed italic border-l-2 border-primary/30 pl-2">
+                {note}
+              </p>
+            )}
           </div>
         )}
       </div>

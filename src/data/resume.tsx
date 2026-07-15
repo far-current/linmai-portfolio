@@ -46,11 +46,11 @@ type Project = {
   dates: string;
   active: boolean;
   description: string;
-  technologies: string[];
   links: ProjectLink[];
   image: string;
   video: string;
   materials?: string[];
+  note?: string;
 };
 
 export const DATA = {
@@ -111,13 +111,6 @@ export const DATA = {
       active: true,
       description:
         "0 预算验证：23 份问卷推翻“自动排版”假设，重定义 AI 简历核心模块。",
-      technologies: [
-        "PRD 撰写",
-        "用户访谈",
-        "问卷调研",
-        "竞品分析",
-        "商业化分析",
-      ],
       materials: [
         "📄 PRD 全文（含调研、流程图）",
         "📊 问卷原始数据",
@@ -144,13 +137,6 @@ export const DATA = {
       active: true,
       description:
         "模拟数据训练：100 条样本跑通 KANO 优先级判定流程。",
-      technologies: [
-        "KANO 模型",
-        "问卷设计",
-        "数据分析",
-        "Excel",
-        "需求优先级",
-      ],
       materials: [
         "📊 KANO 问卷设计",
         "📉 模拟数据生成说明 + 统计",
@@ -178,18 +164,12 @@ export const DATA = {
       active: true,
       description:
         "AI Coding 落地：5 个模块的 0 开发资源产品 Demo。",
-      technologies: [
-        "AI Coding",
-        "产品需求定义",
-        "原型搭建",
-        "非遗文化",
-        "电商模块",
-      ],
       materials: [
         "🌐 双版本 Demo 链接",
         "🤖 需求迭代记录（3-5 轮对话）",
         "🛠️ 制作过程时间线（工具使用、踩坑反思）",
       ],
+      note: "注：本项目重点验证 AI Coding 从需求到页面的落地能力，非最终产品形态。",
       links: [
         {
           type: "平台预览",
@@ -207,13 +187,6 @@ export const DATA = {
       active: true,
       description:
         "逆向工程：通过还原理解“首页即计时”的极简设计逻辑。",
-      technologies: [
-        "墨刀",
-        "低保真原型",
-        "信息架构",
-        "页面流转",
-        "交互设计",
-      ],
       materials: [
         "🎨 墨刀原型（可交互）",
         "📄 信息架构图（树状）",
