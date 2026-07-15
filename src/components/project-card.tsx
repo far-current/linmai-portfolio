@@ -40,24 +40,25 @@ function ImageModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
       onClick={onClose}
     >
       <div
-        className="relative max-w-[90vw] max-h-[90vh] overflow-auto"
+        className="relative w-full max-w-[95vw] max-h-[95vh] overflow-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-2 right-2 z-10 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+          className="fixed top-4 right-4 z-[60] p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
           aria-label="关闭"
         >
           <X className="h-5 w-5" />
         </button>
+        <h3 className="text-white text-lg font-bold mb-4 text-center">{title}</h3>
         <div
           className={cn(
-            "flex gap-4",
-            images.length > 1 ? "flex-row" : "justify-center"
+            "flex gap-4 items-center justify-center w-full",
+            images.length > 1 ? "flex-col lg:flex-row" : "flex-row"
           )}
         >
           {images.map((src, idx) => (
@@ -68,13 +69,12 @@ function ImageModal({
               className={cn(
                 "rounded-lg bg-white object-contain",
                 images.length > 1
-                  ? "max-w-[42vw] max-h-[80vh]"
-                  : "max-w-[85vw] max-h-[80vh]"
+                  ? "max-w-full lg:max-w-[46vw] max-h-[80vh]"
+                  : "max-w-full max-h-[85vh]"
               )}
             />
           ))}
         </div>
-        <p className="text-center text-white text-sm mt-3">{title}</p>
       </div>
     </div>
   );
