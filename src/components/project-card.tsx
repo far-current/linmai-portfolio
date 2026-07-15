@@ -12,14 +12,14 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
 
   if (!src || imageError) {
-    return <div className="w-full h-48 bg-muted" />;
+    return <div className="w-full h-full bg-muted" />;
   }
 
   return (
     <img
       src={src}
       alt={alt}
-      className="w-full h-48 object-cover"
+      className="w-full h-full object-cover"
       onError={() => setImageError(true)}
     />
   );
@@ -61,16 +61,16 @@ export function ProjectCard({
   return (
     <div
       className={cn(
-        "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200",
+        "flex flex-col h-full border border-border rounded-xl overflow-hidden cursor-pointer transition-shadow duration-200 shadow-[0_1px_3px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.12)]",
         className
       )}
     >
-      <div className="relative shrink-0">
+      <div className="relative shrink-0 h-[160px] min-[480px]:h-[150px] md:h-[180px]">
         <Link
           href={href || "#"}
           target="_blank"
           rel="noopener noreferrer"
-          className="block"
+          className="block w-full h-full"
         >
           {video ? (
             <video
@@ -79,12 +79,12 @@ export function ProjectCard({
               loop
               muted
               playsInline
-              className="w-full h-48 object-cover"
+              className="w-full h-full object-cover"
             />
           ) : image ? (
             <ProjectImage src={image} alt={title} />
           ) : (
-            <div className="w-full h-48 bg-muted" />
+            <div className="w-full h-full bg-muted" />
           )}
         </Link>
         {links && links.length > 0 && (
@@ -98,7 +98,7 @@ export function ProjectCard({
                 onClick={(e) => e.stopPropagation()}
               >
                 <Badge
-                  className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90"
+                  className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90 whitespace-nowrap"
                   variant="default"
                 >
                   {link.icon}
@@ -109,46 +109,48 @@ export function ProjectCard({
           </div>
         )}
       </div>
-      <div className="p-6 flex flex-col gap-3 flex-1">
-        <div className="flex items-start justify-between gap-2">
-          <div className="flex flex-col gap-1">
-            <h3 className="font-semibold">{title}</h3>
-            <time className="text-xs text-muted-foreground">{dates}</time>
+      <div className="p-4 flex flex-col gap-0 flex-1">
+        <div className="flex items-start justify-between gap-2 mb-2">
+          <div className="flex flex-col gap-1 min-w-0">
+            <h3 className="text-base font-bold text-foreground truncate whitespace-nowrap">
+              {title}
+            </h3>
+            <time className="text-xs text-gray-400 whitespace-nowrap">{dates}</time>
           </div>
           <Link
             href={href || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
+            className="text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm shrink-0"
             aria-label={`Open ${title}`}
           >
             <ArrowUpRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
-        <div className="text-xs flex-1 prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
+        <div className="text-sm text-gray-500 leading-snug mb-3 min-w-0 truncate whitespace-nowrap">
           <Markdown>{description}</Markdown>
         </div>
         {materials && materials.length > 0 && (
-          <div className="mt-auto pt-4 border-t border-border">
-            <p className="text-xs font-bold text-foreground mb-2.5 flex items-center gap-1.5">
+          <div className="mt-auto pt-3 border-t border-border">
+            <p className="text-xs font-bold text-foreground mb-2 flex items-center gap-1.5">
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary" />
               项目素材
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div className="flex flex-wrap gap-2">
               {materials.map((material) => (
-                <div
+                <span
                   key={material}
-                  className="flex items-start gap-2 text-xs text-foreground leading-relaxed bg-muted/50 rounded-lg px-2.5 py-1.5"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-gray-100 text-gray-700 text-xs font-medium whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
+                  title={material}
                 >
-                  <span className="shrink-0 text-sm leading-none mt-0.5">{material.split(" ")[0]}</span>
-                  <span className="font-medium">{material.slice(material.indexOf(" ") + 1)}</span>
-                </div>
+                  {material}
+                </span>
               ))}
             </div>
           </div>
         )}
         {note && (
-          <p className="text-[11px] text-muted-foreground italic mt-1 leading-relaxed">
+          <p className="text-[11px] text-gray-500 italic mt-2 leading-relaxed">
             {note}
           </p>
         )}
