@@ -44,6 +44,7 @@ type Material = {
   icon: string;
   label: string;
   href?: string;
+  images?: string[];
 };
 
 type Project = {
@@ -229,14 +230,17 @@ export const DATA = {
         {
           icon: "📄",
           label: "信息架构图",
+          images: ["/info-architecture.png"],
         },
         {
           icon: "📄",
           label: "页面流转图",
+          images: ["/page-flow.png"],
         },
         {
           icon: "📝",
           label: "3 条设计笔记",
+          images: ["/design-notes-1.png", "/design-notes-2.png"],
         },
       ],
       links: [
