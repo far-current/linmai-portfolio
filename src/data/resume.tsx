@@ -267,6 +267,7 @@ export const DATA = {
     {
       icon: "📁",
       label: "数据处理案例（千条记录 Excel、70 种常见问题）",
+      href: "https://lcni7ve7ymzp.feishu.cn/wiki/RnOCwhHrkigyKvkafgPckClbnXe",
     },
     {
       icon: "📁",
