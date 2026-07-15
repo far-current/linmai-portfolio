@@ -152,17 +152,20 @@ export default function Page() {
         <section id="portfolio-materials">
           <div className="flex min-h-0 flex-col gap-y-4">
             <BlurFade delay={BLUR_FADE_DELAY * 14}>
-              <h2 className="text-xl font-bold">作品集素材</h2>
+              <h2 className="text-xl font-bold">通用素材</h2>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 15}>
-              <div className="flex flex-wrap gap-2">
-                {DATA.portfolioMaterials.map((material, id) => (
-                  <span
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                {DATA.portfolioMaterials.map((material) => (
+                  <div
                     key={material}
-                    className="text-sm bg-primary/10 text-primary-foreground/90 border border-primary/20 rounded-lg px-3 py-1.5 font-medium"
+                    className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
                   >
-                    {material}
-                  </span>
+                    <span className="text-2xl shrink-0">{material.split(" ")[0]}</span>
+                    <span className="text-sm font-semibold text-foreground leading-snug">
+                      {material.slice(material.indexOf(" ") + 1)}
+                    </span>
+                  </div>
                 ))}
               </div>
             </BlurFade>

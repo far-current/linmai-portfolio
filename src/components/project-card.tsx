@@ -30,7 +30,7 @@ interface Props {
   href?: string;
   description: string;
   dates: string;
-  tags: readonly string[];
+  tags?: readonly string[];
   link?: string;
   image?: string;
   video?: string;
@@ -126,32 +126,23 @@ export function ProjectCard({
         <div className="text-xs flex-1 prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
           <Markdown>{description}</Markdown>
         </div>
-        {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-1 mt-auto">
-            {tags.map((tag) => (
-              <Badge
-                key={tag}
-                className="text-[11px] font-medium border border-border h-6 w-fit px-2"
-                variant="outline"
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        )}
         {materials && materials.length > 0 && (
-          <div className="mt-2 pt-3 border-t border-border/60">
-            <p className="text-[11px] font-semibold text-foreground mb-2">素材清单</p>
-            <div className="flex flex-wrap gap-1.5">
+          <div className="mt-auto pt-4 border-t border-border">
+            <p className="text-xs font-bold text-foreground mb-2.5 flex items-center gap-1.5">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-primary" />
+              项目素材
+            </p>
+            <ul className="space-y-2">
               {materials.map((material) => (
-                <span
+                <li
                   key={material}
-                  className="text-[11px] bg-primary/10 text-primary-foreground/90 border border-primary/20 rounded-md px-2 py-1 font-medium"
+                  className="flex items-start gap-2.5 text-xs text-foreground leading-relaxed bg-muted/50 rounded-lg px-2.5 py-1.5"
                 >
-                  {material}
-                </span>
+                  <span className="shrink-0 text-sm leading-none mt-0.5">{material.split(" ")[0]}</span>
+                  <span className="font-medium">{material.slice(material.indexOf(" ") + 1)}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         )}
       </div>
