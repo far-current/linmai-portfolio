@@ -39,7 +39,11 @@ interface Props {
     type: string;
     href: string;
   }[];
-  materials?: readonly string[];
+  materials?: readonly {
+    icon: string;
+    label: string;
+    href?: string;
+  }[];
   note?: string;
   className?: string;
 }
@@ -127,7 +131,7 @@ export function ProjectCard({
             <ArrowUpRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>
-        <div className="text-sm text-gray-500 leading-snug mb-3 min-w-0 truncate whitespace-nowrap">
+        <div className="text-sm text-gray-500 leading-snug mb-3 min-w-0 line-clamp-2">
           <Markdown>{description}</Markdown>
         </div>
         {materials && materials.length > 0 && (
@@ -137,15 +141,35 @@ export function ProjectCard({
               项目素材
             </p>
             <div className="flex flex-wrap gap-2">
-              {materials.map((material) => (
-                <span
-                  key={material}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-gray-100 text-gray-700 text-xs font-medium whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
-                  title={material}
-                >
-                  {material}
-                </span>
-              ))}
+              {materials.map((material) => {
+                const content = (
+                  <span
+                    className={cn(
+                      "inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-gray-100 text-gray-700 text-xs font-medium whitespace-nowrap overflow-hidden text-ellipsis max-w-full",
+                      material.href && "hover:bg-gray-200 transition-colors"
+                    )}
+                    title={`${material.icon} ${material.label}`}
+                  >
+                    <span>{material.icon}</span>
+                    <span>{material.label}</span>
+                  </span>
+                );
+                return material.href ? (
+                  <Link
+                    key={`${material.icon}-${material.label}`}
+                    href={material.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {content}
+                  </Link>
+                ) : (
+                  <span key={`${material.icon}-${material.label}`}>
+                    {content}
+                  </span>
+                );
+              })}
             </div>
           </div>
         )}

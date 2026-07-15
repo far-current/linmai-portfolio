@@ -40,6 +40,12 @@ type ProjectLink = {
   href: string;
 };
 
+type Material = {
+  icon: string;
+  label: string;
+  href?: string;
+};
+
 type Project = {
   title: string;
   href: string;
@@ -50,7 +56,7 @@ type Project = {
   links: ProjectLink[];
   image: string;
   video: string;
-  materials?: string[];
+  materials?: Material[];
   note?: string;
 };
 
@@ -113,8 +119,16 @@ export const DATA = {
       description:
         "0 预算验证：23 份问卷推翻“自动排版”假设，重定义 AI 简历核心模块。",
       materials: [
-        "📄 PRD 全文（含调研、流程图）",
-        "📊 问卷原始数据",
+        {
+          icon: "📄",
+          label: "PRD 全文（含调研、流程图）",
+          href: "https://lcni7ve7ymzp.feishu.cn/wiki/OjLiw5242iPt0WkJpgTcNGZgn",
+        },
+        {
+          icon: "📊",
+          label: "问卷原始数据",
+          href: "https://f.wps.cn/ksform/rs/pCZFzwdk/",
+        },
       ],
       links: [
         {
@@ -139,9 +153,21 @@ export const DATA = {
       description:
         "模拟数据训练：100 条样本跑通 KANO 优先级判定流程。",
       materials: [
-        "📊 KANO 问卷设计",
-        "📉 模拟数据生成说明 + 统计",
-        "📊 计算过程",
+        {
+          icon: "📊",
+          label: "KANO 问卷设计",
+          href: "https://lcni7ve7ymzp.feishu.cn/wiki/Vc1TwzFBfiGxX8kHaWYcG9mZnWc",
+        },
+        {
+          icon: "📉",
+          label: "模拟数据生成说明 + 统计",
+          href: "https://lcni7ve7ymzp.feishu.cn/wiki/Q7dcwKOVeiV7yjkLimschCpxn2c",
+        },
+        {
+          icon: "📊",
+          label: "计算过程",
+          href: "https://lcni7ve7ymzp.feishu.cn/wiki/Q7dcwKOVeiV7yjkLimschCpxn2c",
+        },
       ],
       links: [
         {
@@ -166,9 +192,15 @@ export const DATA = {
       description:
         "AI Coding 落地：5 个模块的 0 开发资源产品 Demo。",
       materials: [
-        "🌐 Demo 链接",
-        "🤖 需求迭代记录（3-5 轮对话）",
-        "🛠️ 问题解决与反思",
+        {
+          icon: "🌐",
+          label: "Demo 链接",
+          href: "https://cloud-wear-portfolio.nocode.host",
+        },
+        {
+          icon: "🛠️",
+          label: "问题解决与反思",
+        },
       ],
       note: "注：本项目重点验证 AI Coding 从需求到页面的落地能力，非最终产品形态。",
       links: [
@@ -189,10 +221,23 @@ export const DATA = {
       description:
         "逆向工程：通过还原理解“首页即计时”的极简设计逻辑。",
       materials: [
-        "🎨 墨刀原型（可交互）",
-        "📄 信息架构图",
-        "📄 页面流转图",
-        "📝 3 条设计笔记",
+        {
+          icon: "🎨",
+          label: "墨刀原型（可交互）",
+          href: "https://modao.cc/proto/1aRxcaGDti3ty7s4TMLZsp/sharing?view_mode=read_only",
+        },
+        {
+          icon: "📄",
+          label: "信息架构图",
+        },
+        {
+          icon: "📄",
+          label: "页面流转图",
+        },
+        {
+          icon: "📝",
+          label: "3 条设计笔记",
+        },
       ],
       links: [
         {
@@ -207,8 +252,7 @@ export const DATA = {
   ] as Project[],
   hackathons: [] as Hackathon[],
   portfolioMaterials: [
-    "📁 产品刷题记录（70 道真题，截图或 PDF）",
-    "📁 数据处理案例（脱敏后的 SQL / Excel 成果，1-2 个）",
+    "📁 数据处理案例（千条记录 Excel、70 种常见问题）",
     "📁 个人知识库 / 笔记",
   ],
 };
