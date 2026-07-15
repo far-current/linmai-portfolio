@@ -39,6 +39,7 @@ interface Props {
     type: string;
     href: string;
   }[];
+  materials?: readonly string[];
   className?: string;
 }
 
@@ -52,6 +53,7 @@ export function ProjectCard({
   image,
   video,
   links,
+  materials,
   className,
 }: Props) {
   return (
@@ -135,6 +137,21 @@ export function ProjectCard({
                 {tag}
               </Badge>
             ))}
+          </div>
+        )}
+        {materials && materials.length > 0 && (
+          <div className="mt-2 pt-3 border-t border-border/60">
+            <p className="text-[11px] font-semibold text-foreground mb-2">素材清单</p>
+            <div className="flex flex-wrap gap-1.5">
+              {materials.map((material) => (
+                <span
+                  key={material}
+                  className="text-[11px] bg-primary/10 text-primary-foreground/90 border border-primary/20 rounded-md px-2 py-1 font-medium"
+                >
+                  {material}
+                </span>
+              ))}
+            </div>
           </div>
         )}
       </div>

@@ -34,6 +34,25 @@ type Work = {
   description: string;
 };
 
+type ProjectLink = {
+  icon: ReactNode;
+  type: string;
+  href: string;
+};
+
+type Project = {
+  title: string;
+  href: string;
+  dates: string;
+  active: boolean;
+  description: string;
+  technologies: string[];
+  links: ProjectLink[];
+  image: string;
+  video: string;
+  materials?: string[];
+};
+
 export const DATA = {
   name: "林迈",
   initials: "LM",
@@ -99,6 +118,10 @@ export const DATA = {
         "竞品分析",
         "商业化分析",
       ],
+      materials: [
+        "📄 PRD 全文（含调研、流程图）",
+        "📊 问卷原始数据",
+      ],
       links: [
         {
           type: "PRD 文档",
@@ -127,6 +150,11 @@ export const DATA = {
         "数据分析",
         "Excel",
         "需求优先级",
+      ],
+      materials: [
+        "📊 KANO 问卷设计",
+        "📉 模拟数据生成说明 + 统计",
+        "📊 计算过程",
       ],
       links: [
         {
@@ -157,6 +185,11 @@ export const DATA = {
         "非遗文化",
         "电商模块",
       ],
+      materials: [
+        "🌐 双版本 Demo 链接",
+        "🤖 需求迭代记录（3-5 轮对话）",
+        "🛠️ 制作过程时间线（工具使用、踩坑反思）",
+      ],
       links: [
         {
           type: "平台预览",
@@ -178,12 +211,18 @@ export const DATA = {
         "墨刀",
         "低保真原型",
         "信息架构",
-        "交互设计",
         "页面流转",
+        "交互设计",
+      ],
+      materials: [
+        "🎨 墨刀原型（可交互）",
+        "📄 信息架构图（树状）",
+        "📄 页面流转图（流程）",
+        "📝 3 条设计笔记",
       ],
       links: [
         {
-          type: "原型预览",
+          type: "墨刀原型",
           href: "https://modao.cc/proto/1aRxcaGDti3ty7s4TMLZsp/sharing?view_mode=read_only",
           icon: <Icons.globe className="size-3" />,
         },
@@ -191,6 +230,11 @@ export const DATA = {
       image: "/tomato-cover.png",
       video: "",
     },
-  ],
+  ] as Project[],
   hackathons: [] as Hackathon[],
+  portfolioMaterials: [
+    "📁 产品刷题记录（70 道真题，截图或 PDF）",
+    "📁 数据处理案例（脱敏后的 SQL / Excel 成果，1-2 个）",
+    "📁 个人知识库 / 笔记",
+  ],
 };

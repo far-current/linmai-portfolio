@@ -148,6 +148,27 @@ export default function Page() {
           </BlurFade>
         </section>
       )}
+      {DATA.portfolioMaterials && DATA.portfolioMaterials.length > 0 && (
+        <section id="portfolio-materials">
+          <div className="flex min-h-0 flex-col gap-y-4">
+            <BlurFade delay={BLUR_FADE_DELAY * 14}>
+              <h2 className="text-xl font-bold">作品集素材</h2>
+            </BlurFade>
+            <BlurFade delay={BLUR_FADE_DELAY * 15}>
+              <div className="flex flex-wrap gap-2">
+                {DATA.portfolioMaterials.map((material, id) => (
+                  <span
+                    key={material}
+                    className="text-sm bg-primary/10 text-primary-foreground/90 border border-primary/20 rounded-lg px-3 py-1.5 font-medium"
+                  >
+                    {material}
+                  </span>
+                ))}
+              </div>
+            </BlurFade>
+          </div>
+        </section>
+      )}
       <section id="contact">
         <BlurFade delay={BLUR_FADE_DELAY * 16}>
           <ContactSection />
