@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { ArrowUpRight, X, ZoomIn } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import Markdown from "react-markdown";
 
 function ProjectImage({ src, alt }: { src: string; alt: string }) {
@@ -38,26 +39,27 @@ function ImageModal({
 }) {
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+      className="fixed inset-0 z-50 bg-black flex flex-col"
       onClick={onClose}
     >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 z-[60] p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+        aria-label="关闭"
+      >
+        <X className="h-5 w-5" />
+      </button>
+
       <div
-        className="relative w-full max-w-[95vw] max-h-[95vh] overflow-auto"
+        className="flex flex-col w-full h-full pt-14 pb-4 px-4"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          onClick={onClose}
-          className="fixed top-4 right-4 z-[60] p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
-          aria-label="关闭"
-        >
-          <X className="h-5 w-5" />
-        </button>
-        <h3 className="text-white text-lg font-bold mb-4 text-center">{title}</h3>
+        <h3 className="text-white text-lg font-bold mb-3 text-center shrink-0">{title}</h3>
         <div
           className={cn(
-            "flex gap-4 items-center justify-center w-full",
+            "flex gap-4 items-center justify-center w-full h-full",
             images.length > 1 ? "flex-col lg:flex-row" : "flex-row"
           )}
         >
@@ -67,16 +69,15 @@ function ImageModal({
               src={src}
               alt={`${title} - ${idx + 1}`}
               className={cn(
-                "rounded-lg bg-white object-contain",
-                images.length > 1
-                  ? "max-w-full lg:max-w-[46vw] max-h-[80vh]"
-                  : "max-w-full max-h-[85vh]"
+                "rounded-lg bg-white object-contain w-full h-full min-w-0 min-h-0",
+                images.length > 1 ? "lg:max-w-[48%]" : ""
               )}
             />
           ))}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 

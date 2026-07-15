@@ -122,7 +122,7 @@ export const DATA = {
   projects: [
     {
       title: "AI 简历功能优化 PRD",
-      href: "https://lcni7ve7ymzp.feishu.cn/wiki/OjLiw5242iPt0WkJpgTcNGZgnZd",
+      href: "https://lcni7ve7ymzp.feishu.cn/wiki/OjLiw5242iPt0WkJpgTcNGZgnZd?from=from_copylink",
       dates: "2026",
       active: true,
       description:
@@ -131,18 +131,18 @@ export const DATA = {
         {
           icon: "📄",
           label: "PRD 全文（含调研、流程图）",
-          href: "https://lcni7ve7ymzp.feishu.cn/wiki/OjLiw5242iPt0WkJpgTcNGZgn",
+          href: "https://lcni7ve7ymzp.feishu.cn/wiki/OjLiw5242iPt0WkJpgTcNGZgnZd?from=from_copylink",
         },
         {
           icon: "📊",
           label: "问卷原始数据",
-          href: "https://f.wps.cn/ksform/rs/pCZFzwdk/",
+          href: "https://www.kdocs.cn/l/cuatKX7UdERE",
         },
       ],
       links: [
         {
           type: "PRD 文档",
-          href: "https://lcni7ve7ymzp.feishu.cn/wiki/OjLiw5242iPt0WkJpgTcNGZgnZd",
+          href: "https://lcni7ve7ymzp.feishu.cn/wiki/OjLiw5242iPt0WkJpgTcNGZgnZd?from=from_copylink",
           icon: <Icons.globe className="size-3" />,
         },
         {
@@ -209,6 +209,7 @@ export const DATA = {
         {
           icon: "🛠️",
           label: "问题解决与反思",
+          href: "https://bfwct2.nocode.host",
         },
       ],
       note: "注：本项目重点验证 AI Coding 从需求到页面的落地能力，非最终产品形态。",
@@ -247,7 +248,7 @@ export const DATA = {
         },
         {
           icon: "📝",
-          label: "3 条设计笔记",
+          label: "2 条设计笔记",
           images: ["/design-notes-1.png", "/design-notes-2.png"],
         },
       ],
