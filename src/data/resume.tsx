@@ -102,9 +102,9 @@ export const DATA = {
         icon: Icons.github,
         navbar: true,
       },
-      LinkedIn: {
-        name: "LinkedIn",
-        url: "https://linkedin.com/in/linmai",
+      "林迈正加油开垦那片荒原！": {
+        name: "林迈正加油开垦那片荒原！",
+        url: "/linkedin",
         icon: Icons.linkedin,
         navbar: true,
       },
